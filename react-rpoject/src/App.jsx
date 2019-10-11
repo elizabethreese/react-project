@@ -16,10 +16,10 @@ const providers = {
 class App extends React.Component {
   render(){
     return(
-      <div>
+      <header>
         <Title />
         <Login />
-      </div>
+      </header>
     )
   }
 };
