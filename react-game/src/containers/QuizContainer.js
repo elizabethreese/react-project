@@ -8,7 +8,8 @@ let matchStateToProps = state => {
 let matchDispatchToProps = dispatch => {
   return {
     onNext: () => dispatch({ type: "NEXT_QUESTION" }),
-    onRestart: () => dispatch({ type: "RESTART" })
+    onRestart: () => dispatch({ type: "RESTART" }),
+    onFinish: () => dispatch({ type: "FINISH_GAME" })
   };
 };
 
