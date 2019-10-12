@@ -7,8 +7,6 @@ import Resources from "../components/Resources.jsx";
 import Finish from "../components/Finish.jsx"
 
 
-
-
 const Quiz = (props) => {
 
   return (

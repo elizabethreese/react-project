@@ -19,11 +19,13 @@ let mainReducer = (state = initialState, action) => {
   } else if (action.type === "NEXT_QUESTION") {
     return {
       ...state,
+      finishGame: false,
       questionId: state.questionId + 1
     };
   } else if (action.type === "RESTART") {
     return {
       ...state,
+      finishGame: false,
       questionId: 1
     };
   } else if (action.type === "FINISH_GAME") {

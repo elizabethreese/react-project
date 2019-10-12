@@ -1,6 +1,8 @@
 import Quiz from "../components/Quiz";
 import { connect } from "react-redux";
 
+
+
 let matchStateToProps = state => {
   return { ...state };
 };
