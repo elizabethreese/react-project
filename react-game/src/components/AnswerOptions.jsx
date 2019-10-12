@@ -16,15 +16,10 @@ class Question extends React.Component {
         })
 
         return (
-<<<<<<< HEAD
-            <div className = "AnswerContainer">
-                <p className = "Answer">Hello</p>
-=======
             <div className="answer-options">
                 <ul className="answer-options-list">
                     {answerOptions}
                 </ul>
->>>>>>> origin/question-answers
             </div>
         )
     }
