@@ -7,7 +7,7 @@ class Login extends React.Component {
             signOut,
             signInWithGoogle,
         } = this.props;
-        debugger;
+       
         return (
             <div className="App">
                 <header className="App-header">
