@@ -14,10 +14,14 @@ const Quiz = (props) => {
   return (
     <div className="App">
       <header className="App-header"></header>
-      <div>
+      { props.finishGame ? (
+        <Finish />
+      ) : (
+        <div>
           <Question id={props.questionId} text={props.questionText}></Question>
           <AnswerOptions></AnswerOptions>
-      </div>
+        </div>
+      )}
       <div className="Button-area">
         <Button onClick={props.onRestart} class="Restart-Button" text="Restart" />
         <Button onClick={props.onNext} class="Next-Button" text="Next Question" />
