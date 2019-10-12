@@ -10,10 +10,10 @@ class Question extends React.Component {
     render() {
         const question = data.Questions[this.props.id]
         return (
-            <div>
-                <p>ID: {this.props.id}</p>
+            <div className = "QuestionContianer">
+                <p>ID {this.props.id}</p>
                 <br/>
-                <p>Question: {question.text}</p>
+                <p className= "Question" >{question.text}</p>
             </div>
         )
     }

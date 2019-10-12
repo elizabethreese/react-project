@@ -7,7 +7,9 @@ class Question extends React.Component {
 
     render() {
         return (
-            <div><p>Hello</p></div>
+            <div className = "AnswerContainer">
+                <p className = "Answer">Hello</p>
+            </div>
         )
     }
 }
