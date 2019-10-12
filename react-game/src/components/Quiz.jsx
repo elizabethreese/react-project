@@ -11,7 +11,7 @@ const Quiz = (props) => {
       <header className="App-header"></header>
       <div>
           <Question id={props.questionId} text={props.questionText}></Question>
-          <AnswerOptions></AnswerOptions>
+          <AnswerOptions id={props.questionId}></AnswerOptions>
       </div>
       <div className="Button-area">
         <Button class="Restart-Button" text="Restart" />
