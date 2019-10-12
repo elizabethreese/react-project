@@ -4,7 +4,7 @@ import QuizContainer from "./containers/QuizContainer";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <QuizContainer />
     </div>
   );

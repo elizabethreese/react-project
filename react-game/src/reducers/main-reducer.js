@@ -1,6 +1,6 @@
 let initialState = {
   loggedIn: false,
-  questionId: 0,
+  questionId: 1,
   score: 0
 };
 
