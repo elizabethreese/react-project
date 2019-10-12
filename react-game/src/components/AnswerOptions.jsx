@@ -9,9 +9,9 @@ class Question extends React.Component {
         // Map the answer options to html to return
         var answerOptions = question.answers.map(answer => {
             return (
-                <li key={answer.id.toString()}>
-                    <button className="answer-option">{answer.text}</button>
-                </li>  
+                    <li className = "AnswerContainer" key={answer.id.toString()}>
+                        <button className="answer-option">{answer.text}</button>
+                    </li>  
             )
         })
 
