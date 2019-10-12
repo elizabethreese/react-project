@@ -1,15 +1,14 @@
 import React from 'react';
-
 import { data } from "../questions.js";
 
 class Question extends React.Component {
     render() {
-        const question = data.Questions[this.props.id]
+        const question = data.Questions[this.props.id - 1]
         return (
-            <div>
-                <p>ID: {this.props.id}</p>
+            <div className= "QuestionContainer">
+                <p>Question number: {this.props.id}</p>
                 <br/>
-                <p>Question: {question.text}</p>
+                <p className= "Question" >{question.text}</p>
             </div>
         )
     }

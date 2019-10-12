@@ -17,7 +17,7 @@ const Quiz = (props) => {
       ) : (
         <div>
           <Question id={props.questionId} text={props.questionText}></Question>
-          <AnswerOptions></AnswerOptions>
+          <AnswerOptions id={props.questionId}></AnswerOptions>
         </div>
       )}
       <div className="Button-area">
