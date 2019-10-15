@@ -7,8 +7,7 @@ class AnswerOptions extends React.Component {
     constructor() {
         super();
 
-        // You have to bind 'this' to the function so that the function has scope to "this"
-        // Or you can make 'handleClick' a variable ... handleClick = () => (...)
+        // Bind 'this' to the checkAnswer method
         this.checkAnswer = this.checkAnswer.bind(this);
     }
 
@@ -19,13 +18,22 @@ class AnswerOptions extends React.Component {
         const question = data.Questions[this.props.id - 1]
         var correctAnswer = question.correctAnswer;
 
-        var isCorrect = false;
-        console.log(event.target.id);
-        if (event.target.id === correctAnswer) {
-          isCorrect = true;
+        // Check if the answer is correct. If it is, send an increment score dispatch
+        if (event.target.id === correctAnswer) 
+        {
+            this.props.incrementScore();
         }
-        console.log(isCorrect);
-        return isCorrect;
+
+        // If this is the last question, finish the quiz. Else, go to the next question
+        if(this.props.id === data.Questions.length)
+        {
+            this.props.finishQuiz();
+        }
+        else
+        {
+            this.props.nextQuestion(); 
+        }
+      
     } 
 
     render() {
