@@ -29,12 +29,19 @@ class Quiz extends React.Component {
             signOut={this.props.signOut} 
         />
       </header>
-      { this.props.finishGame ? (
-        <Finish />
+      { this.props.finishQuiz ? (
+        <Finish
+            score={this.props.score}>
+        </Finish>
         ) : (
         <div>
           <Question id={this.props.questionId} text={this.props.questionText}></Question>
-          <AnswerOptions id={this.props.questionId}></AnswerOptions>
+          <AnswerOptions 
+            id={this.props.questionId} 
+            incrementScore={this.props.onIncrementScore}
+            nextQuestion={this.props.onNext}
+            finishQuiz={this.props.onFinish}>
+          </AnswerOptions>
         </div>
       )}
       <div className="Button-area">
