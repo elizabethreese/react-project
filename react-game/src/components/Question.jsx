@@ -6,8 +6,7 @@ class Question extends React.Component {
         const question = data.Questions[this.props.id - 1]
         return (
             <div className= "QuestionContainer">
-                <p>Question number: {this.props.id}</p>
-                <br/>
+                <p className = "questionNumber">Question number: <strong>{this.props.id}</strong></p>
                 <p className= "Question" >{question.text}</p>
             </div>
         )
