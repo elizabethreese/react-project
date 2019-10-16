@@ -7,9 +7,9 @@ function updateDatabase(resJson) {
     const userId = firebase.auth().currentUser.uid;
     resJson.forEach(function (landmark) {
         var name = landmark.description;
-        var landmarkObj = {};
+        var userScore = {};
         landmarkObj[name] = landmark;
-        firebase.database().ref('users/' + userId).child("landmarks").update(landmarkObj);
+        firebase.database().ref('users/' + userId).child("score").update(userScore);
     })
 }
 
