@@ -4,9 +4,10 @@ import Question from "../components/Question";
 import AnswerOptions from "../components/AnswerOptions";
 import Button from "../components/Button";
 import Resources from "../components/Resources.jsx";
-import Finish from "../components/Finish.jsx"
+import Finish from "../components/Finish.jsx";
 import Login from '../components/Login';
 import Title from '../components/Title';
+import Controls from "../components/Controls";
 
 import withFirebaseAuth from 'react-with-firebase-auth';
 import * as firebase from 'firebase/app';
@@ -44,11 +45,12 @@ class Quiz extends React.Component {
           </AnswerOptions>
         </div>
       )}
-      <div className="Button-area">
-        <Button onClick={this.props.onRestart} class="Restart-Button" text="Restart" />
-        <Button onClick={this.props.onNext} class="Next-Button" text="Next Question" />
-        <Button onClick={this.props.onFinish} class="Finish-Button" text="Finish Game!" />
-      </div>
+          <Controls
+            id={this.props.questionId} 
+            restartQuiz={this.props.onRestart}
+            nextQuestion={this.props.onNext}
+            finishQuiz={this.props.onFinish}>
+          </Controls>
       <div className="Resources-area">
         <Resources /> 
       </div>
