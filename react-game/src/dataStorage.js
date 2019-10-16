@@ -1,16 +1,13 @@
 /**
  * Adds the provided JSON object to the Firebase Storage
  * 
- * @param resJson - JSON object received in a cloud function response
+ * @param score  * pstsm from users score they have received
  */
-function updateDatabase(resJson) {
+function updateDatabase(score) {
     const userId = firebase.auth().currentUser.uid;
-    resJson.forEach(function (landmark) {
-        var name = landmark.description;
-        var userScore = {};
-        landmarkObj[name] = landmark;
-        firebase.database().ref('users/' + userId).child("score").update(userScore);
-    })
+    var userScore = {score};
+    firebase.database().ref('users/' + userId).child("score").update(userScore);
+    
 }
 
 /**
