@@ -7,6 +7,8 @@ import Resources from "../components/Resources.jsx";
 import Finish from "../components/Finish.jsx"
 import Login from '../components/Login';
 import Title from '../components/Title';
+import Welcome from '../components/Welcome';
+import Popup from "reactjs-popup";
 
 import withFirebaseAuth from 'react-with-firebase-auth';
 import * as firebase from 'firebase/app';
@@ -22,6 +24,7 @@ class Quiz extends React.Component {
     return(
     <div className="App">
       <header>
+        
         <Title />
         <Login
             user={this.props.user}
@@ -29,6 +32,9 @@ class Quiz extends React.Component {
             signOut={this.props.signOut} 
         />
       </header>
+      
+
+
       { this.props.finishQuiz ? (
         <Finish
             score={this.props.score}>
@@ -44,10 +50,9 @@ class Quiz extends React.Component {
           </AnswerOptions>
         </div>
       )}
-      <div className="Button-area">
-        <Button onClick={this.props.onRestart} class="Restart-Button" text="Restart" />
-        <Button onClick={this.props.onNext} class="Next-Button" text="Next Question" />
-        <Button onClick={this.props.onFinish} class="Finish-Button" text="Finish Game!" />
+          <div className="Button-area">
+        <Button class="Restart-Button" text="Restart" />
+        <Button class="Next-Button" text="Next Question" />
       </div>
       <div className="Resources-area">
         <Resources /> 

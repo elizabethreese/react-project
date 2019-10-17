@@ -1,20 +1,15 @@
 let initialState = {
-  loggedIn: false,
   questionId: 1,
   score: 0,
-  finishQuiz: false
+  finishQuiz: false, 
+  welcomeScreen: true
 };
 
 let mainReducer = (state = initialState, action) => {
-  if (action.type === "LOGIN") {
+  if (action.type === "START_GAME") {
     return {
-      loggedIn: true,
-      ...state
-    };
-  } else if (action.type === "LOGOUT") {
-    return {
-      loggedIn: false,
-      ...state
+      ...state,
+      welcomeScreen: false
     };
   } else if (action.type === "INCREMENT_SCORE") {
     return {
@@ -37,7 +32,6 @@ let mainReducer = (state = initialState, action) => {
     return {
       ...state,
       finishQuiz: true
-      // currently unfinished. will put in state when connected to api
     };
   }
   return state;
