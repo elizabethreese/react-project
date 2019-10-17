@@ -4,6 +4,7 @@ body{
   background-color: rgb(40, 44, 52);
 }
 .header{
+  height: 15vh;
   display: flex;
   padding: 10px;
   margin: 10px, 10px, 30px, 10px;
@@ -162,4 +163,72 @@ ul.answer-options-list {
 .title{
   padding: 10px;  
 
+}
+
+.Resources-area{
+  padding: 20px;
+}
+
+.Resources-area li a{
+  color: rgb(231, 237, 248);
+}
+
+.Resources-area li {
+  padding: 10px;
+  list-style: none;
+}
+.giphy-embed{
+  position: fixed;
+  width: 100px;
+  height: 200px;
+  margin-left: 10vw;
+}
+.giphy-embed3{
+  position: fixed;
+  top: 55px;
+  width: 200px;
+  height: 200px;
+  margin-left: 15vw;
+  
+}
+.giphy-embed2{
+  position: fixed;
+  top: 14px;
+  width: 100px;
+  height: 300px;
+}
+.Finish{
+  display: flex;
+  background: rgb(231, 237, 248);
+  color:  rgb(40, 44, 52);
+  flex-direction: column;
+}
+
+.Finish h2{ 
+  margin-left: 10px;
+}
+
+.Finish h1{
+  margin-left: 10px;
+}
+
+
+.Finish strong{
+  font-size: 5em;
+  margin-left: 10vw;
+}
+.signOut{
+  background:  rgb(231, 237, 248);
+  padding: 10px;
+  box-shadow: none;
+  border-radius: 5px;
+  color: rgb(40, 44, 52);
+  font-weight: 600;
+  font-size: .7em;
+  transition: 300ms ease-out;
+}
+
+.signOut:hover{
+  background:  rgb(40, 44, 52);
+  color: rgb(231, 237, 248);
 }

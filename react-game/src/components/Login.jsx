@@ -18,7 +18,7 @@ class Login extends React.Component {
                     }
                     {
                         user
-                            ? <button className = "signIn"  onClick={signOut}>Sign out</button>
+                            ? <button className = "signOut"  onClick={signOut}>Sign out</button>
                             : <img className = "signIn" onClick={signInWithGoogle} src="../google.png"></img>
                     }
                 </header>
