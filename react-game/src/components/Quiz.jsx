@@ -8,7 +8,6 @@ import Finish from "../components/Finish.jsx"
 import Login from '../components/Login';
 import Title from '../components/Title';
 import Welcome from '../components/Welcome';
-import Popup from "reactjs-popup";
 
 import withFirebaseAuth from 'react-with-firebase-auth';
 import * as firebase from 'firebase/app';
@@ -20,6 +19,25 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 class Quiz extends React.Component {
 
   render() {
+
+    let showWelcomeScreen = false;
+    let showQuestions = false;
+    let showFinish = false;
+
+    if(this.props.welcomeScreen)
+    {
+        showWelcomeScreen = true;
+    }
+    
+    if(!showWelcomeScreen && !this.props.finishQuiz)
+    {
+        showQuestions = true;
+    }
+
+    if(this.props.finishQuiz)
+    {
+        showFinish = true;
+    }
 
     return(
     <div className="App">
@@ -33,23 +51,27 @@ class Quiz extends React.Component {
         />
       </header>
       
+        {showWelcomeScreen ? (
+             <Welcome></Welcome>
+        ) : (<div></div>)}
 
-
-      { this.props.finishQuiz ? (
-        <Finish
+        {showFinish ? (
+            <Finish
             score={this.props.score}>
-        </Finish>
-        ) : (
-        <div>
-          <Question id={this.props.questionId} text={this.props.questionText}></Question>
-          <AnswerOptions 
-            id={this.props.questionId} 
-            incrementScore={this.props.onIncrementScore}
-            nextQuestion={this.props.onNext}
-            finishQuiz={this.props.onFinish}>
-          </AnswerOptions>
-        </div>
-      )}
+            </Finish>
+        ) : (<div></div>)}
+
+        {showQuestions ? (
+            <div>
+            <Question id={this.props.questionId} text={this.props.questionText}></Question>
+            <AnswerOptions 
+                id={this.props.questionId} 
+                incrementScore={this.props.onIncrementScore}
+                nextQuestion={this.props.onNext}
+                finishQuiz={this.props.onFinish}>
+            </AnswerOptions>
+            </div>
+        ) : (<div></div>)}
           <div className="Button-area">
         <Button class="Restart-Button" text="Restart" />
         <Button class="Next-Button" text="Next Question" />
