@@ -13,13 +13,13 @@ class Login extends React.Component {
                 <header className="App-header">
                     {
                         user
-                            ? <p>Hello, {user.displayName}</p>
-                            : <p>Please sign in.</p>
+                            ? <p className = "signInText">Hello, {user.displayName}</p>
+                            : <p className = "signInText">Please sign in.</p>
                     }
                     {
                         user
-                            ? <button onClick={signOut}>Sign out</button>
-                            : <button onClick={signInWithGoogle}>Sign in with Google</button>
+                            ? <button className = "signOut"  onClick={signOut}>Sign out</button>
+                            : <img className = "signIn" onClick={signInWithGoogle} src="../google.png"></img>
                     }
                 </header>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Title = () => {
     return (
-        <h1>React Quiz!</h1>
+        <h1 className = "title" >React Quiz!</h1>
     )
 };
 
