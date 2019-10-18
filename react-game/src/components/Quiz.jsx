@@ -83,6 +83,7 @@ class Quiz extends React.Component {
            nextQuestion={this.props.onNext}
            finishQuiz={this.props.onFinish}>
          </Controls>
+           
       <div className="Resources-area">
         <Resources /> 
       </div>
