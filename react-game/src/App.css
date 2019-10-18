@@ -35,6 +35,37 @@ body{
   top: 20%;
 }
 
+.Start-button{ 
+  border-radius: 10px;  
+  font-weight: 300;
+  background: rgb(40, 44, 52);
+  color: rgb(231, 237, 248);
+  border:none;
+  position:relative;
+  height:45px;
+  font-size:1.6em;
+  cursor:pointer;
+  transition:200ms ease all;
+  outline:none;
+  width: 200px;
+}
+
+.Start-button:hover{
+  background: rgba(40, 44, 52, 0.13);
+  color: rgb(40, 44, 52);
+}
+
+.welcome{
+  justify-content: space-around;
+  color: rgb(40, 44, 52);
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  background-color: rgb(231, 237, 248);
+  top: 20%;
+  text-align: center;
+}
+
 .QuestionContainer{
   width: 100%;
   border: 0px;

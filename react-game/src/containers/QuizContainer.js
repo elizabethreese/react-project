@@ -10,7 +10,8 @@ let matchDispatchToProps = dispatch => {
     onIncrementScore: () => dispatch({ type: "INCREMENT_SCORE" }),
     onNext: () => dispatch({ type: "NEXT_QUESTION" }),
     onRestart: () => dispatch({ type: "RESTART" }),
-    onFinish: () => dispatch({ type: "FINISH_QUIZ" })
+    onFinish: () => dispatch({ type: "FINISH_QUIZ" }),
+    onStartGame: () => dispatch({ type: "START_GAME"})
   };
 };
 

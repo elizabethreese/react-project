@@ -7,7 +7,9 @@ import Resources from "../components/Resources.jsx";
 import Finish from "../components/Finish.jsx";
 import Login from '../components/Login';
 import Title from '../components/Title';
+import Welcome from '../components/Welcome';
 import Controls from "../components/Controls";
+
 
 import withFirebaseAuth from 'react-with-firebase-auth';
 import * as firebase from 'firebase/app';
@@ -20,6 +22,25 @@ class Quiz extends React.Component {
 
   render() {
 
+    let showWelcomeScreen = false;
+    let showQuestions = false;
+    let showFinish = false;
+
+    if(this.props.welcomeScreen)
+    {
+        showWelcomeScreen = true;
+    }
+    
+    if(!showWelcomeScreen && !this.props.finishQuiz)
+    {
+        showQuestions = true;
+    }
+
+    if(this.props.finishQuiz)
+    {
+        showFinish = true;
+    }
+
     return(
     <div className="App">
       <header className = "header">
@@ -30,28 +51,39 @@ class Quiz extends React.Component {
             signOut={this.props.signOut} 
         />
       </header>
-      { this.props.finishQuiz ? (
-        <Finish
+      
+        {showWelcomeScreen ? (
+             <div className="welcome">
+             <Welcome 
+             startGame={this.props.onStartGame}>
+             </Welcome>
+</div>
+        ) : (<div></div>)}
+
+        {showFinish ? (
+            <Finish
             score={this.props.score}>
-        </Finish>
-        ) : (
-        <div className = "quizDiv">
-          <Question id={this.props.questionId} text={this.props.questionText}></Question>
-          <AnswerOptions 
-            id={this.props.questionId} 
-            incrementScore={this.props.onIncrementScore}
-            nextQuestion={this.props.onNext}
-            finishQuiz={this.props.onFinish}>
-          </AnswerOptions>
-        </div>
-      )}
+            </Finish>
+        ) : (<div></div>)}
+
+        {showQuestions ? (
+            <div className="quizDiv">
+            <Question id={this.props.questionId} text={this.props.questionText}></Question>
+            <AnswerOptions 
+                id={this.props.questionId} 
+                incrementScore={this.props.onIncrementScore}
+                nextQuestion={this.props.onNext}
+                finishQuiz={this.props.onFinish}>
+            </AnswerOptions>
+            </div>
+        ) : (<div></div>)}
           <Controls
-            id={this.props.questionId} 
-            quizFinished={this.props.finishQuiz}
-            restartQuiz={this.props.onRestart}
-            nextQuestion={this.props.onNext}
-            finishQuiz={this.props.onFinish}>
-          </Controls>
+           id={this.props.questionId}
+           restartQuiz={this.props.onRestart}
+           nextQuestion={this.props.onNext}
+           finishQuiz={this.props.onFinish}>
+         </Controls>
+           
       <div className="Resources-area">
         <Resources /> 
       </div>
