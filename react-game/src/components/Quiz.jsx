@@ -43,8 +43,7 @@ class Quiz extends React.Component {
 
     return(
     <div className="App">
-      <header>
-        
+      <header className = "header">
         <Title />
         <Login
             user={this.props.user}
@@ -67,7 +66,7 @@ class Quiz extends React.Component {
         ) : (<div></div>)}
 
         {showQuestions ? (
-            <div>
+            <div className="quizDev">
             <Question id={this.props.questionId} text={this.props.questionText}></Question>
             <AnswerOptions 
                 id={this.props.questionId} 
