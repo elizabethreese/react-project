@@ -1,3 +1,12 @@
+import firebaseConfig from "./firebaseConfig";
+import * as firebase from 'firebase/app';
+
+
+require("firebase/auth");
+require("firebase/database");
+
+
+
 /**
  * Adds the provided JSON object to the Firebase Storage
  * 
@@ -5,9 +14,9 @@
  */
 function updateDatabase(score) {
     const userId = firebase.auth().currentUser.uid;
-    var userScore = {score};
+    var userScore = { score };
     firebase.database().ref('users/' + userId).child("score").update(userScore);
-    
+
 }
 
 /**
@@ -16,15 +25,14 @@ function updateDatabase(score) {
  * @returns A promise that will resolve with a snapshot
  */
 function getCurrentUserData() {
-    var promise = new Promise(function (resolve, reject) {
+    var promise = new Promise(function(resolve, reject) {
 
         const userId = firebase.auth().currentUser.uid;
 
-        firebase.database().ref('users/' + userId).once('value').then(function (snapshot) {
+        firebase.database().ref('users/' + userId).once('value').then(function(snapshot) {
             if (snapshot === undefined) {
                 reject()
-            }
-            else {
+            } else {
                 resolve(snapshot);
             }
         });
@@ -33,3 +41,5 @@ function getCurrentUserData() {
 
     return promise;
 }
+
+export { updateDatabase, getCurrentUserData };

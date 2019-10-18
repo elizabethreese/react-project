@@ -1,6 +1,9 @@
 import React from 'react';
 import { data } from "../questions.js";
 import Button from "./Button";
+import { updateDatabase, getCurrentUserData } from "../dataStorage";
+
+
 
 class AnswerOptions extends React.Component {
 
@@ -28,6 +31,7 @@ class AnswerOptions extends React.Component {
         if(this.props.id === data.Questions.length)
         {
             this.props.finishQuiz();
+            updateDatabase(this.props.score);
         }
         else
         {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { data } from "../questions.js";
 import Button from "./Button";
+import { updateDatabase, getCurrentUserData } from "../dataStorage";
 
 class Controls extends React.Component {
 
@@ -9,6 +10,7 @@ class Controls extends React.Component {
 
                 // Bind 'this' to the checkAnswer method
         this.nextQuestion = this.nextQuestion.bind(this);
+        this.finishQuiz = this.finishQuiz.bind(this);
     }
 
     nextQuestion(){
@@ -16,6 +18,7 @@ class Controls extends React.Component {
         if(this.props.id === data.Questions.length)
         {
             this.props.finishQuiz();
+            updateDatabase(this.props.score);
         }
         else
         {
@@ -23,12 +26,18 @@ class Controls extends React.Component {
         }
     }
 
+    finishQuiz(){
+        this.props.finishQuiz()
+        updateDatabase(this.props.score);
+    
+    }
+
     render() {
         return (
             <div className="controls">
                 <Button onClick={this.props.restartQuiz} class="Restart-Button" text="Restart" />
                 <Button onClick={this.nextQuestion} class="Next-Button" text="Next Question" />
-                <Button onClick={this.props.finishQuiz} class="Finish-Button" text="Finish Game!" />
+                <Button onClick={this.finishQuiz} class="Finish-Button" text="Finish Game!" />
             </div>
         )
     }
