@@ -53,10 +53,11 @@ class Quiz extends React.Component {
       </header>
       
         {showWelcomeScreen ? (
+             <div className="welcome">
              <Welcome 
              startGame={this.props.onStartGame}>
              </Welcome>
-
+</div>
         ) : (<div></div>)}
 
         {showFinish ? (
@@ -66,7 +67,7 @@ class Quiz extends React.Component {
         ) : (<div></div>)}
 
         {showQuestions ? (
-            <div className="quizDev">
+            <div className="quizDiv">
             <Question id={this.props.questionId} text={this.props.questionText}></Question>
             <AnswerOptions 
                 id={this.props.questionId} 
@@ -76,10 +77,12 @@ class Quiz extends React.Component {
             </AnswerOptions>
             </div>
         ) : (<div></div>)}
-          <div className="Button-area">
-        <Button class="Restart-Button" text="Restart" />
-        <Button class="Next-Button" text="Next Question" />
-      </div>
+          <Controls
+           id={this.props.questionId}
+           restartQuiz={this.props.onRestart}
+           nextQuestion={this.props.onNext}
+           finishQuiz={this.props.onFinish}>
+         </Controls>
       <div className="Resources-area">
         <Resources /> 
       </div>
