@@ -47,6 +47,7 @@ class Quiz extends React.Component {
       )}
           <Controls
             id={this.props.questionId} 
+            quizFinished={this.props.finishQuiz}
             restartQuiz={this.props.onRestart}
             nextQuestion={this.props.onNext}
             finishQuiz={this.props.onFinish}>
